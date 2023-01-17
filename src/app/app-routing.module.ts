@@ -14,15 +14,28 @@ import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 
 const routes: Routes = [
   {path: 'inicio', component: HomeComponent,
-  ...canActivate(() => redirectUnauthorizedTo(['/register'])) },
-  {path: 'listado', component: ListadoComponent },
-  {path: 'buscar', component: BuscarComponent },
-  {path: 'agregar', component: AgregarComponent },
-  {path: 'modificar', component: ModificarComponent },
-  {path: 'error', component: ErrorComponent },
-  {path: 'login', component: LoginComponent},
+  ...canActivate(() => redirectUnauthorizedTo(['/login'])) },
+  {path: 'listado', component: ListadoComponent,
+  ...canActivate(() => redirectUnauthorizedTo(['/login']))},
+  {path: 'buscar', component: BuscarComponent,
+  ...canActivate(() => redirectUnauthorizedTo(['/login']))  },
+  {path: 'agregar', component: AgregarComponent,
+  ...canActivate(() => redirectUnauthorizedTo(['/login']))  },
+  {path: 'modificar', component: ModificarComponent,
+  ...canActivate(() => redirectUnauthorizedTo(['/login']))  },
+  {path: 'error', component: ErrorComponent,
+  ...canActivate(() => redirectUnauthorizedTo(['/login']))  },
+  {path: 'login', component: LoginComponent,
+  ...canActivate(() => redirectUnauthorizedTo(['/registro'])) },
+
   {path: 'registro', component: RegistroComponent},
-  {path: '', pathMatch: 'full', redirectTo: '/inicio' },
+
+  {path: '', component: LoginComponent,
+  ...canActivate(() => redirectUnauthorizedTo(['/login']))},
+
+  {path: '**', component: LoginComponent,
+  ...canActivate(() => redirectUnauthorizedTo(['/login'])) },
+
   
   
 

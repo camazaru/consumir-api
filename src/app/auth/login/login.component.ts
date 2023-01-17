@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup,  } from '@angular/forms';
+import { UserService } from '../../estudiantes/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,17 +10,28 @@ import { NgForm } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  
-  constructor() { }
+  form: FormGroup;
+
+  constructor(
+    private userService: UserService,
+    private router: Router
+    ) {
+      this.form= new FormGroup({
+        usuario: new FormControl(),
+        password: new FormControl()
+     })
+    }
 
   ngOnInit(): void {
   }
 
-  login(form:NgForm){
-const usuario: string=form.value.usuario
-const password: string = form.value.password
-
-console.log(form.value.usuario)
+  onRegister() {
+    this.userService.register(this.form.value)
+    .then(response => {
+      console.log(response);
+      this.router.navigate(['/login'])
+    })
+    .catch(error => console.log(error))
   }
 
 }
