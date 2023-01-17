@@ -9,6 +9,9 @@ import { LayoutModule } from './layout/layout.module';
 import { EstudiantesModule } from './estudiantes/estudiantes.module';
 import { MaterialModule } from './shared/material/material.module';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
 
 
 
@@ -28,6 +31,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     LayoutModule,
     EstudiantesModule,
     MatToolbarModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
    
   ],
   providers: [],

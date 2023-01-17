@@ -8,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EstudiantesComponent implements OnInit {
 
+  userAdmin: any = [{"usuario": "admin"}, {"password": "admin"}]
+
   userList: any = [];
 
   constructor() { }
 
   ngOnInit(): void {}
+
+ 
 
 }
