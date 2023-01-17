@@ -1,15 +1,16 @@
 <!-- <ul *ngFor=" let estudiante of estudiantes">
     <li>{{estudiante.name}}</li> -->
 <div class="row " id="tarjeta">
-<div *ngFor=" let estudiante of estudiantes" class="col-md-3 ml-md-auto">
+<!-- <div *ngFor=" let estudiante of estudiantes" class="col-md-3 ml-md-auto"> -->
+  <div *ngFor ="let user of userList" class="col-md-3 ml-md-auto" >
     <mat-card class="example-card">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>{{estudiante.name}}</mat-card-title>
-          <mat-card-subtitle>Estatus {{estudiante.status}}</mat-card-subtitle>
+          <mat-card-title>{{user.name}}</mat-card-title>
+          <mat-card-subtitle></mat-card-subtitle>
         </mat-card-header>
        <!--  <img mat-card-image src="../assets/imagenes/1h.jpg" alt="Photo of a Shiba Inu"> -->
-        <img mat-card-image src="{{estudiante.img}}" alt="Photo of a Shiba Inu">
+        <img mat-card-image src="../assets/imagenes/{{user.id}}.jpg" alt="Photo of a Shiba Inu">
           <mat-card-content>
           <p>
                         

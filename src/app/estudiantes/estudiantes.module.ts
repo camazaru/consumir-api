@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PagesModule } from './pages/pages.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -9,7 +10,8 @@ import { PagesModule } from './pages/pages.module';
   ],
   imports: [
     CommonModule,
-    PagesModule
+    PagesModule,
+    HttpClientModule
   ],
   exports: [
      ]

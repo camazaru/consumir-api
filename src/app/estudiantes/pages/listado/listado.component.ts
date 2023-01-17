@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import estudiantesMock from '../../../shared/jsonMockeado/estudiantesMock.json'
 import { InterEstudiantes } from '../../interfaces/estudiantes.interface';
+import { ApinuevaService } from '../../services/apinueva.service';
 
 
 
@@ -10,20 +11,23 @@ import { InterEstudiantes } from '../../interfaces/estudiantes.interface';
   styleUrls: ['./listado.component.css']
 })
 export class ListadoComponent implements OnInit {
+  userList: any;
 
-  imgprueba:string="../../../shared/estudiantes/paisaje.jpg"
+
 
 
 estudiantes: any = estudiantesMock
 
 
 
-  constructor() { 
+  constructor(private apinuevaService: ApinuevaService ) { 
 
     
   }
 
   ngOnInit(): void {
+    this.apinuevaService.getUsers()
+    .subscribe((response: any) => this.userList = response)
   
   }
 
