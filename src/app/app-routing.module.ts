@@ -14,7 +14,7 @@ import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 
 const routes: Routes = [
   {path: 'inicio', component: HomeComponent,
-  ...canActivate(() => redirectUnauthorizedTo(['/login'])) },
+  ...canActivate(() => redirectUnauthorizedTo(['/registro'])) },
   {path: 'listado', component: ListadoComponent,
   ...canActivate(() => redirectUnauthorizedTo(['/login']))},
   {path: 'buscar', component: BuscarComponent,
@@ -26,12 +26,12 @@ const routes: Routes = [
   {path: 'error', component: ErrorComponent,
   ...canActivate(() => redirectUnauthorizedTo(['/login']))  },
   {path: 'login', component: LoginComponent,
-  ...canActivate(() => redirectUnauthorizedTo(['/registro'])) },
+  ...canActivate(() => redirectUnauthorizedTo(['/login'])) },
 
   {path: 'registro', component: RegistroComponent},
 
   {path: '', component: LoginComponent,
-  ...canActivate(() => redirectUnauthorizedTo(['/login']))},
+  ...canActivate(() => redirectUnauthorizedTo(['/inicio']))},
 
   {path: '**', component: LoginComponent,
   ...canActivate(() => redirectUnauthorizedTo(['/login'])) },
