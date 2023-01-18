@@ -11,8 +11,8 @@ export class UserService {
   register({usuario, password}: any) {
     return createUserWithEmailAndPassword(this.auth, usuario, password);
  }
- login({ email, password }: any) {
-  return signInWithEmailAndPassword(this.auth, email, password);
+ login({ usuario, password }: any) {
+  return signInWithEmailAndPassword(this.auth, usuario, password);
 }
 
 loginWithGoogle() {

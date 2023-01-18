@@ -3,6 +3,8 @@ import { FormControl, FormGroup,  } from '@angular/forms';
 import { UserService } from '../../estudiantes/services/user.service';
 import { Router } from '@angular/router';
 
+
+
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -30,7 +32,7 @@ password: new FormControl()
     this.userService.register(this.formReg.value)
     .then(response => {
       console.log(response);
-      this.router.navigate(['/login'])
+      this.router.navigate(['/inicio'])
     })
     .catch(error => console.log(error))
   }
