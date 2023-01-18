@@ -10,13 +10,13 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  form: FormGroup;
+  formLogin: FormGroup;
 
   constructor(
     private userService: UserService,
     private router: Router
     ) {
-      this.form= new FormGroup({
+      this.formLogin= new FormGroup({
         usuario: new FormControl(),
         password: new FormControl()
      })
@@ -25,13 +25,21 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onRegister() {
-    this.userService.register(this.form.value)
-    .then(response => {
-      console.log(response);
-      this.router.navigate(['/login'])
-    })
-    .catch(error => console.log(error))
+  onSubmit() {
+    this.userService.login(this.formLogin.value)
+      .then(response => {
+        console.log(response);
+      })
+      .catch(error => console.log(error));
+  }
+
+  onClick() {
+    this.userService.loginWithGoogle()
+      .then(response => {
+        console.log(response);
+        this.router.navigate(['/main']);
+      })
+      .catch(error => console.log(error))
   }
 
 }

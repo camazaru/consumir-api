@@ -4,7 +4,7 @@
                     <div class="titulo">
                         Bienvenido
                     </div>
-                    <form [formGroup]="form" (ngSubmit)="onRegister()">
+                    <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
                         <input type="text" name="usuario" placeholder="Usuario" required formControlName="usuario">
                         
                         <input type="password" placeholder="Contraseña" name="password" required formControlName="password" >
